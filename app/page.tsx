@@ -1,5 +1,6 @@
 import Link from "next/link";
-
+import { authClient } from '@/lib/auth/client'; 
+import { NeonAuthUIProvider, UserButton } from '@neondatabase/auth/react'; 
 export default async function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center">
