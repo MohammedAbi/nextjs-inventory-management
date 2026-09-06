@@ -3,11 +3,13 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
+  // 🔥 Clear existing data
+  // await prisma.product.deleteMany();
   const demoUserId = "1fc93aab-d5ec-411b-ae2d-2e7df0ea9ec8";
 
   // Create 25 products
   await prisma.product.createMany({
-    data: Array.from({ length: 25 }).map((_, i) => ({
+    data: Array.from({ length: 40 }).map((_, i) => ({
       userId: demoUserId,
       name: `Product ${i + 1}`,
       sku: `SKU${1000 + i}`, // unique SKU

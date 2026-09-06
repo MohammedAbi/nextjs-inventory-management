@@ -17,6 +17,8 @@ model product {
   lowStockAt Int?
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-
+ 
   @@index([userId, name])
+@@index([createdAt])
+
 }

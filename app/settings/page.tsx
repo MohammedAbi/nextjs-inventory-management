@@ -1,0 +1,32 @@
+import { AccountSettings } from "@stackframe/stack";
+import Sidebar from "../components/sidebar";
+import { getCurrentUser } from "../lib/aut";
+
+export default async function settingsPage() {
+  const user = await getCurrentUser();
+  if (!user) throw new Error("Unauthorized");
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Sidebar currentPath="/settings" />
+      <main className="ml-64 p-8">
+        <div className="mb-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-semibold text-gray-900">Settings</h1>
+              <p className="text-sm text-gray-500">
+                Manage your profile settings.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-6xl">
+        <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <AccountSettings fullPage />
+        </div>
+      </div>
+      </main>
+      
+    </div>
+  );
+}
